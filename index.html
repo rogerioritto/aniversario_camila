@@ -27,7 +27,13 @@
         }
 
         h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
-        p.subtitle { margin-top: 10px; font-weight: 300; opacity: 0.9; }
+        p.subtitle { 
+            color: #ffffff; /* Força a cor branca */
+            margin-top: 10px; 
+            font-weight: 400; /* Deixei um pouco mais grosso pra ler melhor */
+            opacity: 1; /* Tirei a transparência pra ficar bem nítido */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra leve pra destacar do fundo */
+        }
 
         .container {
             max-width: 1100px;
@@ -114,13 +120,13 @@
 <header>
     <h1>Parabéns, Camila! ❤️</h1>
     <p class="subtitle">Aqui está seus vale-presentes. Use com sabedoria!</p>
-    <button class="celebrate-btn" onclick="celebrar()">🎉 Clique para Celebrar</button>
+    <button class="celebrate-btn" onclick="celebrar()">🎉 Jogar Confetinho 🎉</button>
 </header>
 
 <div class="container">
     
     <div class="music-player">
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/50uChhF83x9QpTEfE1E7aO?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/1rknZw4cyL9NInAqSwc8AA?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
     <div class="grid">
@@ -128,45 +134,82 @@
             <span class="icon">☕</span>
             <h3>Café na Cama</h3>
             <p>Cafezinho na caminha, com direito a ovo sem gema.</p>
-            <a href="https://wa.me/5521995865469?text=Amor,%20quero%20resgatar%20meu%20Café%20na%20Cama!" class="btn-resgatar">Resgatar</a>
+            <a href="https://wa.me/5521995865469?text=Amor,%20quero%20meu%20cafezin%20%20na%20cama" class="btn-resgatar">Resgatar</a>
         </div>
 
         <div class="card">
             <span class="icon">🗺️</span>
             <h3>Aventura Surpresa</h3>
             <p>Um dia que você vai topar minha maluquice sem fazer nenhuma pergunta.</p>
-            <a href="https://wa.me/5521995865469?text=Estou%20pronta%20para%20a%20Aventura%20Surpresa!" class="btn-resgatar">Resgatar</a>
+            <a href="https://wa.me/5521995865469?text=Lá%20vem%20você%20com%20essas%20coisas...%20Não%20posso%20saber%20nada??" class="btn-resgatar">Resgatar</a>
         </div>
 
         <div class="card">
             <span class="icon">🎬</span>
             <h3>Escolha o Filme</h3>
             <p>Você vai poder escolher qualquer filme do mundo pra assistirmos, prometo não dar pitaco e assistir quietinho.</p>
-            <a href="https://wa.me/5521995865469?text=Prepare%20a%20pipoca,%20já%20escolhi%20o%20filme!" class="btn-resgatar">Resgatar</a>
+            <a href="https://wa.me/5521995865469?text=Já%20posso%20fazer%20a%20popoca?%20rsrs" class="btn-resgatar">Resgatar</a>
         </div>
 
         <div class="card">
             <span class="icon">💆‍♀️</span>
             <h3>Massage Day</h3>
             <p>Vai receber o quando de massagem você quiser!!! Não é na maldade, juro rs.</p>
-            <a href="https://wa.me/5521995865469?text=Preciso%20da%20minha%20massagem%20agora!" class="btn-resgatar">Resgatar</a>
+            <a href="https://wa.me/5521995865469?text=Passa%20olinho%20aqui%20no%20meu%20corpinho,%20amor..." class="btn-resgatar">Resgatar</a>
         </div>
 
         <div class="card">
             <span class="icon">😴</span>
             <h3>Dia da Soneca</h3>
             <p>Nesse dia você está liberada para tirar infinitas sonecas com direito a carinho na orelha rsrs.</p>
-            <a href="https://wa.me/5521995865469?text=Ativando%20o%20modo%20Soneca..." class="btn-resgatar">Resgatar</a>
+            <a href="https://wa.me/5521995865469?text=Nenequinha??" class="btn-resgatar">Resgatar</a>
         </div>
 
         <div class="card">
             <span class="icon">🎧</span>
             <h3>Justin Bieber Loop</h3>
             <p>Esse aqui vai ser difícil... Vai poder ter sua overdose de JB e eu não posso reclamar.</p>
-            <a href="https://wa.me/5521995865469?text=Baby,%20baby,%20baby%20oh!%20Vou%20usar%20o%20card%20do%20Justin!" class="btn-resgatar">Resgatar</a>
+            <a href="https://wa.me/5521995865469?text=Alexa,%20tocar%20álbum%20SWAG,%20Justin%20Bieber" class="btn-resgatar">Resgatar</a>
         </div>
     </div>
 </div>
+
+<div style="text-align: center; margin: 60px 20px; padding: 30px; background: rgba(255,255,255,0.6); border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+    <h3 style="color: #d90429; margin-bottom: 20px;">💖 Por que você é especial?</h3>
+    
+    <p id="motivo-texto" style="font-size: 1.2rem; font-style: italic; color: #2b2d42; min-height: 40px; margin-bottom: 25px; transition: opacity 0.5s;">
+        Clique no botão para descobrir...
+    </p>
+
+    <button onclick="gerarMotivo()" style="background: #d90429; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 1rem; box-shadow: 0 5px 15px rgba(217, 4, 41, 0.3); transition: transform 0.2s;">
+        Me diga um motivo
+    </button>
+</div>
+
+<script>
+    const motivos = [
+        "Você tem o melhor carinho do mundo",
+        "Seus olhos ficam lindos no sol",
+        "Você é extremamente gentil",
+        "Você é bizarramente inteligente",
+        "Todos os dias você me faz ser uma pessoa melhor",
+        "Você é o Au do meu Tismo",
+        "Você sabe ouvir como ninguém"
+    ];
+
+    function gerarMotivo() {
+        const texto = document.getElementById("motivo-texto");
+        
+        // Efeito simples de sumir e aparecer
+        texto.style.opacity = 0;
+        
+        setTimeout(() => {
+            const random = Math.floor(Math.random() * motivos.length);
+            texto.innerText = motivos[random];
+            texto.style.opacity = 1;
+        }, 200);
+    }
+</script>
 
 <div class="footer">
     <p>Feito com todo amor do mundo pelo seu namorado ❤️</p>
