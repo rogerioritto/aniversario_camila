@@ -118,24 +118,7 @@
 <body>
 
 <header>
-    <h1 id="typewriter"></h1>
-    <script>
-        const text = "Parabéns, Camila! ❤️"; // Mude o nome aqui
-        let index = 0;
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 100); // Velocidade da digitação
-            }
-        }
-        window.onload = typeWriter; // Inicia quando a página carrega
-    </script>
-    <style>
-        /* O cursor piscando */
-        #typewriter::after { content: '|'; animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-    </style>
+    <h1>Parabéns, amor ❤️</h1>
     <p class="subtitle">Aqui está seus vale-presentes. Use com sabedoria!</p>
     <button class="celebrate-btn" onclick="celebrar()">🎉 Jogar Confetinho 🎉</button>
 </header>
