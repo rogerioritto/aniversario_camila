@@ -4,51 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Aniversário!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; text-align: center; margin: 0; padding: 0; }
-        header { background: #ff4d6d; color: white; padding: 40px 20px; }
-        .container { padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-        .card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .card:hover { transform: scale(1.05); }
-        .card h3 { color: #ff4d6d; }
-        .btn { display: inline-block; background: #ff4d6d; color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; margin-top: 10px; font-weight: bold; }
-        .footer { margin-top: 50px; padding: 20px; color: #888; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+            color: #2b2d42;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(to right, #d90429, #ef233c);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(217, 4, 41, 0.3);
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        p.subtitle { margin-top: 10px; font-weight: 300; opacity: 0.9; }
+
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 0; /* Sobe um pouco pra ficar estiloso */
+            padding: 20px;
+        }
+
+        .celebrate-btn {
+            background: white;
+            color: #d90429;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        .celebrate-btn:active { transform: scale(0.95); }
+
+        /* Grid dos Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 5px solid #ef233c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(217, 4, 41, 0.15);
+        }
+
+        .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+
+        h3 { color: #d90429; margin: 10px 0; }
+        p { color: #666; font-size: 0.9rem; line-height: 1.5; }
+
+        .btn-resgatar {
+            display: inline-block;
+            background: #d90429;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-resgatar:hover { background: #8d0018; }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #d90429;
+            font-size: 0.8rem;
+        }
+        
+        /* Area do Spotify (Extra) */
+        .music-player {
+            margin: 40px auto;
+            max-width: 400px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Parabéns, [NOME DELA]! 🎂</h1>
-    <p>Sua central exclusiva de mimos para o novo ciclo.</p>
+    <h1>Parabéns, Camila! ❤️</h1>
+    <p class="subtitle">Aqui está seus vale-presentes. Use com sabedoria!</p>
+    <button class="celebrate-btn" onclick="celebrar()">🎉 Clique para Celebrar</button>
 </header>
 
 <div class="container">
-    <h2>Seus Vales-Presente</h2>
+    
+    <div class="music-player">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/50uChhF83x9QpTEfE1E7aO?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
     <div class="grid">
         <div class="card">
-            <h3>☕ Café na Cama</h3>
-            <p>Um banquete matinal servido onde você preferir.</p>
-            <a href="https://wa.me/SEUNUMERO?text=Quero%20resgatar%20meu%20vale%20Café%20na%20Cama!" class="btn">Resgatar</a>
+            <span class="icon">☕</span>
+            <h3>Café na Cama</h3>
+            <p>Cafezinho na caminha, com direito a ovo sem gema.</p>
+            <a href="https://wa.me/5521995865469?text=Amor,%20quero%20resgatar%20meu%20Café%20na%20Cama!" class="btn-resgatar">Resgatar</a>
         </div>
 
         <div class="card">
-            <h3>🎬 Escolha o Filme</h3>
-            <p>Direito a pipoca e controle remoto sem reclamações.</p>
-            <a href="https://wa.me/SEUNUMERO?text=Quero%20resgatar%20meu%20vale%20Cinema!" class="btn">Resgatar</a>
+            <span class="icon">🗺️</span>
+            <h3>Aventura Surpresa</h3>
+            <p>Um dia que você vai topar minha maluquice sem fazer nenhuma pergunta.</p>
+            <a href="https://wa.me/5521995865469?text=Estou%20pronta%20para%20a%20Aventura%20Surpresa!" class="btn-resgatar">Resgatar</a>
         </div>
 
         <div class="card">
-            <h3>💆 Massage Day</h3>
-            <p>Sessão de massagem relaxante de 30 minutos.</p>
-            <a href="https://wa.me/SEUNUMERO?text=Quero%20resgatar%20meu%20vale%20Massagem!" class="btn">Resgatar</a>
+            <span class="icon">🎬</span>
+            <h3>Escolha o Filme</h3>
+            <p>Você vai poder escolher qualquer filme do mundo pra assistirmos, prometo não dar pitaco e assistir quietinho.</p>
+            <a href="https://wa.me/5521995865469?text=Prepare%20a%20pipoca,%20já%20escolhi%20o%20filme!" class="btn-resgatar">Resgatar</a>
+        </div>
+
+        <div class="card">
+            <span class="icon">💆‍♀️</span>
+            <h3>Massage Day</h3>
+            <p>Vai receber o quando de massagem você quiser!!! Não é na maldade, juro rs.</p>
+            <a href="https://wa.me/5521995865469?text=Preciso%20da%20minha%20massagem%20agora!" class="btn-resgatar">Resgatar</a>
+        </div>
+
+        <div class="card">
+            <span class="icon">😴</span>
+            <h3>Dia da Soneca</h3>
+            <p>Nesse dia você está liberada para tirar infinitas sonecas com direito a carinho na orelha rsrs.</p>
+            <a href="https://wa.me/5521995865469?text=Ativando%20o%20modo%20Soneca..." class="btn-resgatar">Resgatar</a>
+        </div>
+
+        <div class="card">
+            <span class="icon">🎧</span>
+            <h3>Justin Bieber Loop</h3>
+            <p>Esse aqui vai ser difícil... Vai poder ter sua overdose de JB e eu não posso reclamar.</p>
+            <a href="https://wa.me/5521995865469?text=Baby,%20baby,%20baby%20oh!%20Vou%20usar%20o%20card%20do%20Justin!" class="btn-resgatar">Resgatar</a>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <p>Feito com ❤️ por [SEU NOME]</p>
+    <p>Feito com todo amor do mundo pelo seu namorado ❤️</p>
 </div>
+
+<script>
+    function celebrar() {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#d90429', '#ef233c', '#ffffff']
+        });
+    }
+</script>
 
 </body>
 </html>
